@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <title></title>
+    <style>
+    .fa-plane {
+      transform: rotate(-45deg);
+      font-size: 10em;
+      position: absolute;
+      bottom: 2%;
+      left: 47%;
+      transition-property: font-size, bottom;
+      transition-duration: 7s;
+    }
+
+    .take-off {
+      bottom: 120%;
+      font-size: 30em;
+    }
+
+    </style>
+  </head>
+  <body>
+    <i class="fa fa-plane"></i>
+    <audio src="mp3/takeoff.mp3">
+
+    </audio>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- Custom .js internal -->
+    <script>
+    $(document).ready(function() {
+      $(window).click(function() {
+      $('.fa-plane').click(function(){
+        $('.fa-plane').addClass('take-off');
+        var audio = new Audio ('takeoff.mp3');
+        audio.play();
+      }});
+    });
+
+    </script>
+    <!-- Custom JS -->
+  </body>
+</html>

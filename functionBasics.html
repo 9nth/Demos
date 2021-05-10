@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)file:///Users/932400863/Downloads/1-basic-loop-demo-with-comments.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Function Basics</title>
+	<link href="./functionBasics_files/css" rel="stylesheet">
+	<link rel="stylesheet" href="./functionBasics_files/bootstrap.min.css">
+	<style>
+		/* CSS Here */
+		ul {
+			margin: 25px;
+			border: 1px solid;
+		}
+		ul li {
+			font-size: 44px;
+			font-weight: 400;
+		}
+	</style>
+</head>
+<body>
+	<ul id="animals">
+		<li>Tiger</li>
+		<li>Lion</li>
+		<li>Whale</li>
+		<li>Bird</li>
+		<li>Cat</li>
+		<li>Cow</li>
+	</ul>
+	<ul id="cities">
+		<li>Wellington</li>
+		<li>Brisbane</li>
+		<li>New York City</li>
+		<li>Budapest</li>
+		<li>Sydney</li>
+		<li>London</li>
+	</ul>
+	<ul id="fish">
+		<li>Marlin</li>
+		<li>Trout</li>
+		<li>Tuna</li>
+		<li>Salmon</li>
+		<li>Eel</li>
+		<li>Gold Fish</li>
+	</ul>
+
+<button id="animalBtn">Click me</button>
+<button id="buttonTwo">Cities</button>
+<button id="buttonThree">Fish</button>
+
+
+	<script src="./functionBasics_files/jquery.min.js"></script>
+
+	<script>
+
+		// **Task read and run the code to improve your understanding...open console
+
+		$(document).ready(function(){
+
+			// When the loop first runs var i is set to 0
+			// If i is less than 10 ... increment i by 1 '++'
+			// Loop runs until i IS NOT less than 10 / If i is less than 5 another loope cycle will run
+
+			var arrayFruits = ['apples', 'oranges', 'apples', 'bananas', 'pears', 'strawberries', 'apples', 'pineapples', 'kiwifruit', 'oranges'];
+
+			var arrayAnimals = ['Tiger', 'Lion', 'Whale', 'Bird', 'Cat', 'Cow'];
+
+				var arrayCities = ['Wellington', 'Brisbane', 'New York City', 'Budapest', 'Sydney', 'London'];
+
+				var arrayFish = ['Marlin', 'Trout', 'Tuna', 'Salmon', 'Eel', 'Gold Fish'];
+
+// This function checks the arrayFruits for apples and oranges
+			function runLoopA () {
+
+// for Starts
+			for (var i = 0; i < arrayFruits.length; i++) {
+
+			if (arrayFruits[i] === 'apples') {
+				console.log('I found some ' + arrayFruits[i]);
+			}
+
+			if (arrayFruits[i] === 'oranges') {
+				console.log('I found some ' + arrayFruits[i]);
+			}
+		}
+		// for Loop Ends
+	};
+	// Function Ends
+
+	$('#animalBtn').click(function(){
+		updateAnimals();
+
+	});
+// Call the Function
+// runLoopA();
+
+// ******* Pseudocode ********
+// 1. Get my hands on the list elements
+// 2. Check with console
+// 3. See if i can update the list elements
+// 4. Put list element code in the loop
+// 5. Update loop to add animals to list elements
+
+// Animals
+function updateAnimals(){
+		var getListEls = document.querySelectorAll('#animals li');
+		console.dir(getListEls);
+
+		// For loop
+		for (var i = 0; i < getListEls.length; i++) {
+		getListEls[i].textContent = arrayAnimals[i];
+	}
+};
+
+
+// Cities of the world
+function updateCities() {
+
+		var getListEls = document.querySelectorAll('#cities li');
+		console.dir(getListEls);
+
+		for (var i = 0; i < getListEls.length; i++) {
+			getListEls[i].textContent = arrayCities[i];
+		}
+};
+updateCities();
+
+
+// Fishies
+
+function updateFish() {
+	var getListEls = document.querySelectorAll('#fish li');
+	console.log(getListEls);
+
+	for (var i = 0; i < getListEls.length; i++) {
+		getListEls[i].textContent = arrayFish[i];
+	}
+};
+// Run Loop Function
+updateFish();
+
+
+
+
+
+		});
+	</script>
+
+
+</body></html>

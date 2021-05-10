@@ -1,0 +1,79 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Peppers</title>
+</head>
+<body>
+
+  <div class="hotel-info">
+    <h1 id="name">Name</h1>
+    <p id="goldCoastAirport">Gold Coast Airport</p>
+    <h2 id="location">Location</h2>
+    <h2 id="area">Area</h2>
+    <h4 id="airport">Closest Airport</h4>
+    <h4 id="beauty">Natural Beauty?</h4>
+    <h4 id="nearby">Whats Near By?</h4>
+      <ul>Nearby one</ul>
+      <ul>Nearby one</ul>
+    <h4 id="facilities">Facilities</h4>
+    <ul id="outdoorFacilities">Outdoor Facilities</ul>
+      <p>List one</p>
+    <ul>Activities</ul>
+      <p>List one</p>
+  </div>
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+  <script>
+  var hotel = {
+        name: 'Peppers Soul Surfers Paradise',
+        location: 'Australia',
+        area: 'Beachfront',
+        roomType: 'Apartment',
+        closestAirport: 'Gold Coast Airport',
+        naturalBeautyNearby: true,
+        whatsNearby: [
+          ['Ripleys Believe It or Not', '0.2'],
+          ['Infinity Maze', '0.4']
+        ],
+        facilities: {
+          outdoorFacilities: ['Sun Deck', 'BBQ', 'Balcony', 'Terrace', 'Garden'],
+          activities: ['Live Music', 'Movie Night', 'Beach']
+        }
+        updateDOM: function() {
+          var getOne = document.querySelector('h1')
+          getOne.textContent = hotel.name;
+          var para = document.createElement('p');
+          para.textContent = hotel.whatsNearby[0];
+        }
+      };
+
+      // Start of function
+            function updateDOM () {
+              var one = document.querySelector('#name');
+              one.textContent = hotel.name;
+              var two = document.querySelector('#location');
+              two.textContent = hotel.location;
+              var three = document.querySelector('#area');
+              three.textContent = hotel.area;
+              var four = document.querySelector('#airport');
+              four.textContent = hotel.closestAirport;
+              var five = document.querySelector('#beauty');
+              five.textContent = hotel.naturalBeautyNearby;
+              var six = document.querySelector('#a');
+              six.textContent = hotel.whatsNearby[0][0];
+              // console.log(hotel.whatsNearby[0][0]);
+              var seven = document.querySelector('#b');
+              seven.textContent = hotel.whatsNearby[1];
+              var eight = document.querySelector('#outdoorFacilities');
+              eight.textContent = hotel.outdoorFacilities;
+            };
+          // end of function
+
+
+  </script>
+</body>
+</html>
