@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!-- saved from url=(0070)file:///Users/932400863/Downloads/1-basic-loop-demo-with-comments.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	
+
 	<title>Function Basics</title>
-	<link href="./functionBasics_files/css" rel="stylesheet">
-	<link rel="stylesheet" href="./functionBasics_files/bootstrap.min.css">
+	<!-- <link href="css" rel="stylesheet"> -->
+	<!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
 	<style>
 		/* CSS Here */
 		ul {
@@ -48,48 +48,42 @@
 <button id="buttonThree">Fish</button>
 
 
-	<script src="./functionBasics_files/jquery.min.js"></script>
+	<script src="jquery.min.js"></script>
 
 	<script>
-
-		// **Task read and run the code to improve your understanding...open console
-
 		$(document).ready(function(){
-
-			// When the loop first runs var i is set to 0
-			// If i is less than 10 ... increment i by 1 '++'
-			// Loop runs until i IS NOT less than 10 / If i is less than 5 another loope cycle will run
-
+			// Arrays Data
 			var arrayFruits = ['apples', 'oranges', 'apples', 'bananas', 'pears', 'strawberries', 'apples', 'pineapples', 'kiwifruit', 'oranges'];
-
 			var arrayAnimals = ['Tiger', 'Lion', 'Whale', 'Bird', 'Cat', 'Cow'];
+			var arrayCities = ['Wellington', 'Brisbane', 'New York City', 'Budapest', 'Sydney', 'London'];
+			var arrayFish = ['Marlin', 'Trout', 'Tuna', 'Salmon', 'Eel', 'Gold Fish'];
+			var arrayTaste = [' is delicious.', ' is ok.', ' is not my thing.'];
+			var arrayWithManyTypes = ['Hello', 'my', 'name', 'is'];
 
-				var arrayCities = ['Wellington', 'Brisbane', 'New York City', 'Budapest', 'Sydney', 'London'];
+			// Buttons
+			$('#animalBtn').click(function(){
+				updateAnimals();
+				});
 
-				var arrayFish = ['Marlin', 'Trout', 'Tuna', 'Salmon', 'Eel', 'Gold Fish'];
+			function updateFruits () {
 
-// This function checks the arrayFruits for apples and oranges
-			function runLoopA () {
-
-// for Starts
+// for Fruits Starts
 			for (var i = 0; i < arrayFruits.length; i++) {
 
-			if (arrayFruits[i] === 'apples') {
+				if (arrayFruits[i] === 'apples') {
 				console.log('I found some ' + arrayFruits[i]);
-			}
+				}
 
-			if (arrayFruits[i] === 'oranges') {
+				if (arrayFruits[i] === 'oranges') {
 				console.log('I found some ' + arrayFruits[i]);
-			}
+				}
 		}
-		// for Loop Ends
+		// for Fruits Loop Ends
 	};
-	// Function Ends
+	updateFruits();
 
-	$('#animalBtn').click(function(){
-		updateAnimals();
 
-	});
+
 // Call the Function
 // runLoopA();
 
@@ -110,7 +104,7 @@ function updateAnimals(){
 		getListEls[i].textContent = arrayAnimals[i];
 	}
 };
-
+updateAnimals();
 
 // Cities of the world
 function updateCities() {
@@ -119,8 +113,8 @@ function updateCities() {
 		console.dir(getListEls);
 
 		for (var i = 0; i < getListEls.length; i++) {
-			getListEls[i].textContent = arrayCities[i];
-		}
+		getListEls[i].textContent = arrayCities[i];
+	}
 };
 updateCities();
 
@@ -132,13 +126,44 @@ function updateFish() {
 	console.log(getListEls);
 
 	for (var i = 0; i < getListEls.length; i++) {
-		getListEls[i].textContent = arrayFish[i];
+		// getListEls[i].textContent = arrayFish[i];
+		if (arrayFish[i] === 'Tuna') {
+			getListEls[i].textContent = arrayFish[i] + arrayTaste[0];
+		}
+
+		if (arrayFish[i] === 'Trout') {
+			getListEls[i].textContent = arrayFish[i] + arrayTaste[2];
+		}
 	}
 };
 // Run Loop Function
 updateFish();
 
+console.log(arrayWithManyTypes);
 
+for (var i = 0; i < arrayWithManyTypes.length; i++) {
+	// console.log(arrayWithManyTypes[i]);
+
+	if (arrayWithManyTypes[i] === 1 ) {
+		console.log(arrayWithManyTypes[i]);
+	}
+
+	if (arrayWithManyTypes[i] === 2 ) {
+		console.log(arrayWithManyTypes[i]);
+	}
+
+	if (arrayWithManyTypes[i] === 3 ) {
+		console.log(arrayWithManyTypes[i]);
+	}
+
+	if (arrayWithManyTypes[i] === 4 ) {
+		console.log(arrayWithManyTypes[i]);
+	}
+
+	if (typeof arrayWithManyTypes[i] === "hello"){
+		console.log(arrayWithManyTypes[i]);
+	}
+}
 
 
 
