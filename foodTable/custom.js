@@ -5,6 +5,11 @@ $('#order').click(function () {
   updateDetails();
 });
 
+// Variables
+var lessThanFifteen = ['1 x Fries', '1 x Hash Brown', '1 x Free sauce'];
+var lessThanTwenty = ['1 x Burger', '1 x Drink', '1 x Icecream'];
+var moreThanTwenty = ['1 x Burger', '2 x Drinks', '2 x Icecreams', '1 x Carwash Ticket'];
+
 // CLick event ENDS
 function updateDetails() {
 
