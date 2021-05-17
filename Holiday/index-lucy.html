@@ -60,7 +60,65 @@
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script src="custom.js"></script>
+	<script>
+
+	var data = {
+	  holidayOne: {
+	    place: 'Samoa',
+	    price: 889
+	  },
+	  holidayTwo: {
+	    place: 'Fiji',
+	    price: 759
+	  },
+	  hotelOne: {
+	    name: 'Hilton',
+	    pricePerNight: 269
+	  },
+	  hotelTwo: {
+	    name: 'Sheraton',
+	    pricePerNight: 249
+	  }
+	}
+
+var prices = [];
+
+
+	// 1. Create Function for Button To Calculate TOTAL
+	// 2. Add Var Data Together To Find Total
+	// 3. Console Log Total
+
+	// Button To Calculate The Total
+
+
+
+// Button To Calculate
+	$('.btn').click(function() {
+		console.log(prices[0]+prices[1]) || (prices[2]+prices[3]);
+
+	});
+
+document.addEventListener('click', function(e) {
+
+		if (e.target.value === 'Samoa $889.00' ) {
+			prices.push(data.holidayOne.price);
+		}
+
+		else if (e.target.value === 'Fiji $759.00') {
+			prices.push(data.holidayTwo.price);	console.log();
+		}
+
+		else if (e.target.value === 'Sheraton $249.00') {
+			prices.push(data.hotelTwo.pricePerNight);
+		}
+
+		else if (e.target.value === 'Hilton $269.00') {
+			prices.push(data.hotelOne.pricePerNight);
+		}
+
+});
+
+	</script>
 
 </body>
 </html>
