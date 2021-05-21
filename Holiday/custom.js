@@ -31,7 +31,7 @@
 
 // Button
 	getBtn.onclick = function() {
-
+console.log(getLocation);
 	// *** click event will run this code
 	var getLocation = document.querySelector('#holidaySlt').value;
 	var getHotel = document.querySelector('#hotelSlt').value;
