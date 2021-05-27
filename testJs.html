@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Save the file to your desktop called test.js
+    // console.log('This is global...');
+    // var sentence = ['my', 'Hello', 'name', 'Jared', 'is', '.'];
+    //
+    // // var cloudObj = {};
+    //
+    // function a () {
+    //   console.log('working......');
+    //   var hidden = 'I am inside the function';
+    //   var second = ' today. Today is Tuesday, by the way.';
+    //
+    //   return hidden + second;
+    // }
+    //
+    // // Calling the function
+    // var getReturnVal = a();
+    //
+    // console.log(getReturnVal);
+
+    function a () {
+      var sentence = ['my', 'Hello', 'name', 'Josh', 'is', '.'];;
+      console.log('working');
+      var complete = sentence[1]+sentence[0]+sentence[2]+sentence[4]+sentence[3]+sentence[5]
+      return complete;
+    }
+    var getReturn = a();
+    console.log(getReturn);
+
+    function b () {
+      var getSend = a();
+      var add = ' on the end.';
+
+      console.log(getSend + add);
+    }
+b();
+
+
+  </script>
+</body>
+</html>

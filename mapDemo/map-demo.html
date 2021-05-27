@@ -1,0 +1,140 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+      #map {
+        margin: 20px;
+      }
+
+      .marker {
+        background-image: url('img/mapbox-icon.png');
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+
+
+  </style>
+</head>
+<body>
+
+<div id='map' style='width: 800px; height: 600px;'></div>
+<button id="flyA">Lake Marian</button>
+<button id="flyB">Noosa National Park</button>
+<button id="flyC">Aoraki / Mt Cook</button>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiOW50aCIsImEiOiJja3A1eHMzdXMwZG9zMm9ud3p3MGt1NTZqIn0.cDeS2l13wdnMmMVGlDXJiw';
+
+// 3D View Code
+var map = new mapboxgl.Map({
+    container: 'map',
+    zoom: 13.1,
+    center: [168.0754385252054, -44.78569382698465],
+    pitch: 85,
+    bearing: 80,
+    style: 'mapbox://styles/mapbox-map-design/ckhqrf2tz0dt119ny6azh975y'
+  });
+
+map.on('load', function () {
+  map.addSource('mapbox-dem', {
+  'type': 'raster-dem',
+  'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+  'tileSize': 512,
+  'maxzoom': 14
+});
+// add the DEM source as a terrain layer with exaggerated height
+map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+
+// add a sky layer that will show when the map is highly pitched
+map.addLayer({
+      'id': 'sky',
+      'type': 'sky',
+      'paint': {
+      'sky-type': 'atmosphere',
+      'sky-atmosphere-sun': [0.0, 0.0],
+      'sky-atmosphere-sun-intensity': 15
+    }
+  });
+});
+// 3D View ENDS
+// Parliment With Markers
+var geojson = {
+  type: 'FeatureCollection',
+  features: [{
+    type: 'Feature',
+    geometry: {
+      type: 'Sky',
+      coordinates: [174.7766766952219, -41.278381027959846]
+    },
+    properties: {
+      title: 'Mapbox',
+      description: 'The Beehive'
+    }
+  },
+  // New Section Below
+  {
+    type: 'Feature',
+    geometry: {
+      type: 'Sky',
+      coordinates: [174.7765996357283, -41.277984557632394]
+    },
+    properties: {
+      title: 'Mapbox',
+      description: 'Parliment House'
+    }
+  },
+]
+};
+// Parliment ENDS
+// GeoJson Object Ends
+geojson.features.forEach(function(marker) {
+
+  // create a HTML element for each feature
+  var el = document.createElement('div');
+  el.className = 'marker';
+
+  // make a marker for each feature and add to the map
+  new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+    .addTo(map);
+});
+// Add Markers Ends
+// Flying to Lake Marian
+document.getElementById('flyA').addEventListener('click', function () {
+    map.flyTo({
+      type: 'Sky',
+    center: [168.0754385252054, -44.78569382698465],
+    essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+    zoom: 14
+  });
+});
+// Fly To Noosa!
+document.getElementById('flyB').addEventListener('click', function () {
+    map.flyTo({
+      type: 'Sky',
+    center: [153.10101778652668, -26.379373044117386],
+    essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+    zoom: 14
+  });
+});
+// Fly To Mt Cook
+document.getElementById('flyC').addEventListener('click', function () {
+    map.flyTo({
+      type: 'Sky',
+    center: [170.10391543100954, -43.688498446812865],
+    essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+    zoom: 14
+  });
+});
+
+</script>
+</body>
+</html>
